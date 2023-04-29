@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('app.ejs')%>
+    <title>Document</title>
+</head>
+<body>
+  <%- include('header.ejs')%>
+  <div class="homelander">
+    <p class="home">Home > Products</p> 
+  </div>
+  <div class="hhh"> <h1 class="h1">Добавить товар</h1> </div>
+  <div class="parent">
+    <form action="/productadder" method="POST">
+      <div class="input"><input type="text" placeholder="Название продукта" name="title"></div>
+      <div class="input"><input type="text" placeholder="Цена" name="price"></div>
+      <div class="input"><input type="text" placeholder="Скидка" name="discount"></div>
+      <div class="input"><input type="text" placeholder="URL картинки" name="link"></div>
+      <button class="button" type="submit">Добавить продукт</button>
+    </form>
+  </div>
+</body>
+</html>
+     

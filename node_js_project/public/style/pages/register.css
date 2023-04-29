@@ -1,0 +1,64 @@
+.login-content{
+    display: flex;
+    height: 70vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-content h2{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 46px;
+    color: #000000;
+    text-align: center;
+}
+
+.input1{
+    background: #FFFFFF;
+    border: 1px solid #E7E7E7;
+    border-radius: 4px;
+    outline: none;
+    width: 321px;
+    height: 50px;
+    padding: 0 5%;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 46px;
+    margin-top: 20px;
+    box-sizing: border-box;
+}
+
+.enterer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 321px;
+    height: 50px;
+    background: #00A2DC;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+.enterer button{
+    border: none;
+    background-color: transparent;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 46px;
+    text-align: center;
+    color: #FFFFFF;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.enterer:hover{
+    background: #124b60;
+}

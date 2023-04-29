@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>renderinghtml</title>
+    </head>     
+    <body>
+        <h1>COUNT: <%=count%><h1>
+        <button onclick="ChangeNum(+1)">+</button>
+        <button onclick="ChangeNum(-1)">-</button>
+        <script>
+            function ChangeNum(num){
+                fetch('/count', {method: "POST", body: JSON.stringify({"value": +num}), headers: {'content-type': 'application/json'}}).then(() => {  
+                    location.reload()
+                })
+            }
+        </script>
+    </body>
+</html>

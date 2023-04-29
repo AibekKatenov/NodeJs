@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('app.ejs')%>
+    <title>Document</title>
+</head>
+<body>
+  <%- include('header.ejs')%>
+  <div class="homelander">
+    <p class="home">Home > Products</p> 
+  </div>
+  <div class="hhh"> <h1 class="h1">Редактирование товара</h1> </div>
+  <div class="parent2">
+    <form action="/editer" method="POST">
+      <input type="hidden" name="id" value="<%=EditData._id%>">
+      <div class="input2"><input type="text" name="title" value="<%=EditData.title%>"></div>
+      <div class="input2"><input type="text" name="price" value="<%=EditData.price%>"></div>
+      <div class="input2"><input type="text" name="discount" value="<%=EditData.discount%>"></div>
+      <div class="input2"><input type="text" name="link" value="<%=EditData.link%>"></div>
+      <button class="button">Сохранить изменения</button>
+    </form>
+  </div>    
+</body>
+</html>

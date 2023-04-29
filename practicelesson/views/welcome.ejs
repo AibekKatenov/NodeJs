@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('app.ejs')%>
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <%- include('header.ejs')%>
+  <div class="homelander">
+    <p class="home">Home > Products</p> 
+  </div>
+  <div class="content">
+    <div class="content_header">
+      <div class="chairs">Chairs</div>
+      <div class="add"><button> <span class="span">+</span> Добавить продукт</button></div>
+    </div>
+  </div>
+  <div class="katalog">
+    <%  
+      for(let item of data){
+    %>
+
+    <div class="catalog_item" id="<%=item._id%>" >
+        <div class="catalog_item_header">
+          <div class="percent"><%=item.discount%></div>
+          <div><img src="../images/heart.png" alt=""></div>
+        </div>
+        <div class="imageholder">
+          <img src=<%=item.link%> alt="">
+        </div>
+        <p class="parag"><%=item.title%></p>
+        <p class="priceofchair"><%=item.price%></p>
+        <div class="plus">
+          <a href="/productadder" class="plusplus">+</a>
+          <div class="plusoptions" onclick="fantom('<%=item._id%>s')">...</div>
+        
+          <div class="hidden" id="<%=item._id%>s">
+            <a href="/editer/<%=item._id%>" class="editer">Редактировать</a>
+            <div class="deleter" onclick="deleteItem('<%=item._id%>')">Удалить</div>
+          </div>
+          
+        </div>
+    </div>
+    <%
+      }
+    %>
+  
+
+ <script src="/js/fantom.js"></script>
+ <script src="/js/deleteItem.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"></script>
+</body>
+</html>

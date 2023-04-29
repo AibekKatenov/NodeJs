@@ -1,0 +1,114 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Regular.ttf');
+}
+
+.profileholder{
+    margin-right: 20px;
+}
+
+.profileholder img{
+    width: 100%;
+    height: 100%;
+}
+
+.profileholder2{
+    width: 198px;
+    height: 208px;
+}
+
+.profileholder2 img{
+    width: 100%;
+    height: 100%;
+}
+
+.hold{
+    display: flex;
+    justify-content: center;
+}
+
+.namer{
+    text-align: center;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;    
+    line-height: 46px;
+    color: #000000 !important ; 
+}
+
+.pa{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #000000 !important;
+    margin-bottom: 40px;
+}
+
+.editt{
+    width: 155px;
+    height: 50px;
+    background: #00A2DC;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.editt a{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 46px;
+    color: #FFFFFF;
+}
+
+.editthold{
+    display: flex;
+    justify-content: center;
+}
+.content-right-profile{
+    background-color: #FFFFFF;
+    width: 26%;
+    height: 650px;
+}
+
+.profilehead{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2% 7%;
+}
+
+.buttoner2{
+    width: 122px;
+    height: 50px;
+    background: #00A2DC;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttoner2 a{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 46px;
+    color: #FFFFFF;
+}
+
+.profilehead h2{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 46px;
+    color: #000000;
+}
+

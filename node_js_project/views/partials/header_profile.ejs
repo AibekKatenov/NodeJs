@@ -1,0 +1,30 @@
+<header>
+    <div class="header">
+        <a href="/" class="header-left">Decode Blog</a>
+        <div class="header-center">
+            <input type="text" placeholder="Поиск по блогам">
+            <div class="searchbar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span class="found">Найти</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <% if(user.isAdmin == true){
+            %>
+            <div class="blueborder">Admin</div>
+            <%
+                }
+            %>
+            <div class="profileholder">
+                <img src="/images/avatar.png" alt="">
+            </div>
+            <%
+                if((user._id && user.full_name.length>0)){
+            %>
+             <div class="blueborder"><a href="/api/signOut">Выйти</a></div>
+            <%
+                }
+            %>
+        </div>
+    </div>
+</header>
