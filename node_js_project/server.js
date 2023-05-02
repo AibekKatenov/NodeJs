@@ -33,8 +33,8 @@ app.use(passport.session())
 
 app.use(require('./server/pages/router'))
 app.use(require('./server/auth/router'))
-
-
+app.use(require('./server/category/router'))
+app.use(require('./server/blogs/router'))
 
 app.listen(PORT, () =>  {   
     console.log(`Listening PORT: ${PORT}`)

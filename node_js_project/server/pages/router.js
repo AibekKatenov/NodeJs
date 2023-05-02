@@ -1,8 +1,10 @@
 const express = require('express')
 const router = express.Router()
+const categories = require('../category/category')
 
-router.get('/', (req, res) => {
-    res.render('index', {user: req.user ? req.user : {}})
+router.get('/', async(req, res) => {
+    const data = await categories.find()
+    res.render('index', {user: req.user ? req.user : {}, category: data})
 })
 
 router.get('/profile/:id', (req, res) => {
@@ -15,6 +17,10 @@ router.get('/login',(req, res) => {
 
 router.get('/register', (req,res) => {
     res.render('register', {user: req.user ? req.user : {}})
+})
+router.get('/new', async(req, res) => {
+    const data = await categories.find()
+    res.render('newBlog', {user: req.user ? req.user : {}, category: data})
 })
 
 module.exports = router
