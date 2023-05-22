@@ -1,5 +1,7 @@
 const user = require('../auth/user')
 const bcrypt = require('bcrypt')
+const mongoose = require('mongoose');
+
 
 async function createAdmin(){
     const findAdmin = await user.findOne({isAdmin: true}).count()

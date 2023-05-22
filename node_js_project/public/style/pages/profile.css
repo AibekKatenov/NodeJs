@@ -112,3 +112,24 @@
     color: #000000;
 }
 
+.delete{
+    width: 155px;
+    height: 50px;
+    background: red;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.delete:hover{
+    cursor: pointer;
+}
+
+.detaila{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 30px;
+    background-color: aqua;
+}

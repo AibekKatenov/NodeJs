@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("partials/meta.ejs")%>
+    <title>Document</title>
+</head>
+<body>
+    <%- include("partials/header.ejs")%>
+
+    <div class="container">
+            <div class="detail">
+                <div class="blog-image">
+                    <img src="<%=blog.image%>" alt="">
+                </div>
+                <div class="blog-info-detail">
+                    <h2>Блог</h2>
+                    <%
+                        if(user.toRead){
+                            if(user.toRead.includes(blog._id)){
+                    %>
+                    <button onclick="deleteFromToRead('<%=blog._id%>')">Добавлен</button>
+                    <%
+                            }else if(user.full_name){
+                    %>
+                    <button onclick="saveToRead('<%=blog._id%>')">Буду читать</button>
+                    <%
+                            }else{ 
+                    %>   
+                   <button onclick="saveToRead()">Буду читать</button>              
+                    <%
+                            }
+                                }
+                    %>
+                    <h4>О фильме</h4>
+                    <div class="blog-details">
+                        <p>Автор</p>
+                        <p><%=blog.author.full_name%></p>
+                    </div>
+                    <div class="blog-details">
+                        <p>Название</p>
+                        <p><%=blog.title%></p>
+                    </div>
+                    <div class="blog-details">
+                        <p>Категория</p>
+                        <p><%=blog.category.name%></p>
+                    </div>
+                    <div class="blog-details">
+                        <p>Описание</p>
+                        <p><%=blog.description%></p>
+                    </div>
+                </div>
+            </div>
+      
+    </div>
+
+    <%- include("partials/scripts.ejs")%>
+</body>
+</html>

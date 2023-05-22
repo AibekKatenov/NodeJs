@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/meta.ejs')%>
+    <title>Document</title>
+</head>
+<body>
+    <%- include('partials/header.ejs')%>
+
+    <div class="new">
+        <h2 class="newBlog">Редактировние блога</h2>
+        <form action="/api/blogs/edit" method="POST" enctype="multipart/form-data">
+            <fieldset>
+                <input type="hidden" value="<%=blog._id%>" name="id" id="">
+            </fieldset>
+            <fieldset>
+                <input type="text" value="<%=blog.title%>" placeholder="Введите заголовок блога" class="inputnew" name="title">
+            </fieldset>
+            <fieldset>
+                <select id="" class="inputnew ad" name="category">
+                    <!-- <option value="unchosen" disabled selected class="sel">Выберите категорию</option> -->
+                    <%
+                        category.forEach(item => {
+                            if(item.id == blog.category){
+                    %>  
+                         <option value="<%=item._id%>" class="selected"><%=item.name%></option>
+                         <%
+                            }else{
+                         %>
+                        <option value="<%=item._id%>"><%=item.name%></option>  
+                    <%
+                                }            
+                        })
+                    %>
+                </select>
+            </fieldset>
+            <fieldset>
+                <input type="file" placeholder="Выберите картинку" class="filer" name="image">
+            </fieldset>
+            <fieldset>
+                <textarea placeholder="Введите описание блога" class="descr" name="description"><%=blog.description%></textarea>
+            </fieldset>
+            <fieldset>
+                <button type="submit" class="buttoncr">Сохранить</button>
+            </fieldset>
+        </form>
+    </div>
+    <%- include('partials/scripts.ejs')%>
+</body>
+</html>

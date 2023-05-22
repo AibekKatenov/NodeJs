@@ -14,32 +14,36 @@
                     <a href="/new">Новый блог</a>
                 </div>
             </div>
+            <%
+            if(user.toRead.length > 0){
+                user.toRead.forEach(item => {
+                    console.log(item)
+            %>
             <div class="imageholder">
-                <img src="/images/content-left-image.png" alt="">
+                <img src="<%=item.image%>" alt="">
             </div>
+           
             <div class="holder">
-                <h2 class="under-image">Обзор Report Manager от Webix</h2>
-                <p class="under-image2">Осень 2020 года стала плодотворным временем для специалистов Webix.</p>
-                <p class="under-image2">Команда Webix выпустила восьмую версию библиотеки пользовательского интерфейса Webix 
-                    с двумя новыми комплексными виджетами. Первый - зто Scheduler, о 
-                    котором мы подробно говорили ранее. Второй виджет - это Gantt chart в JavaScript. 
-                    Подробную информацию об этом виджете Вы можете найти в статье.</p>
-                <p class="under-image2">Ноябрь продолжает тенденцию, и мы спешим поделиться с Вами новым комплексным виджетом Report Manager. Давайте рассмотрим его</p>
+                <h2 class="under-image"><%=item.title%></h2>
+                <p class="under-image2"><%=item.author.name%></p>
+                <p class="under-image2"><%=item.description%></p>
+                <p class="under-image2"><%=item.category.name%></p>
+                <a href="/detail/<%=item._id%>" class="detaila">details</a>
+                <a onclick="deleteFromToRead('<%=item._id%>')" class="delete">Удалить блог</a>
+                <%
+                    if(item.isAdmin){
+                %>
+                <a href="/edit/<%=item._id%>" class="editt">Редактировать</a>
+                <a onclick="deleteBlog('<%=item._id%>', '<%=item.author._id%>')" class="delete">Удалить</a>
+                <%
+                    }
+                %>
                 <%- include('partials/options.ejs')%>
             </div> 
-            <div class="imageholder">
-                <img src="/images/content-left-image2.png" alt="">
-            </div>
-            <div class="holder">
-                <h2 class="under-image">Разработчики изобрели методологию <br> высокоскоростного программирования</h2>
-                <p class="under-image2">Осень 2020 года стала плодотворным временем для специалистов Webix.</p>
-                <p class="under-image2">Команда Webix выпустила восьмую версию библиотеки пользовательского интерфейса Webix 
-                    с двумя новыми комплексными виджетами. Первый - зто Scheduler, о 
-                    котором мы подробно говорили ранее. Второй виджет - это Gantt chart в JavaScript. 
-                    Подробную информацию об этом виджете Вы можете найти в статье.</p>
-                <p class="under-image2">Ноябрь продолжает тенденцию, и мы спешим поделиться с Вами новым комплексным виджетом Report Manager. Давайте рассмотрим его</p>
-                <%- include('partials/options.ejs')%>
-            </div> 
+            <%
+                })
+               }
+            %>
         </div>
         <div class="content-right-profile">
             <div class="info2">
@@ -48,7 +52,7 @@
                         <img src="/images/avatar.png" alt="">
                     </div>
                 </div>
-                <h2 class="namer">Tony Soprano</h2>
+                <h2 class="namer"><%=user.full_name%></h2>
                 <div class="pa">В основном пишу про веб - <br> разработку, на React & Redux </div>
                 <div class="pa">97 постов за все время</div>
                 <div class="editthold">
@@ -59,5 +63,6 @@
             </div>
         </div>
     </div>
+    <%- include('partials/scripts.ejs')%>
 </body>
 </html>

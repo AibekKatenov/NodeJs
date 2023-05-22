@@ -40,16 +40,18 @@
                     </div>
                 </div>
                 <h3>Сохраненные фильмы</h3>
-
+                <% if(user.toWatch.length > 0) {
+                    user.toWatch.forEach(film => {
+                %>
                 <div class="main-card">
                     <div class="card-left">
                         <div class="film-img">
-                            <img src="/images/films/film1.webp" alt="">
+                            <img src="<%=film.image%>" alt="">
                         </div>
                         <div class="film-info">
-                            <a href="">Все везде и сразу</a>
-                            <a href="">Everything Everywhere All at Once, 2021, 139 min</a>
-                            <a href="">США, фантастика</a>
+                            <a href="/detail/<%=item._id%>"><%=film.titleRus%></a>
+                            <a href="/detail/<%=item._id%>"><%=film.titleEng%>, <%=film.year%>, <%=film.time%> min</a>
+                            <a href="/detail/<%=item._id%>"><%=film.country.name%>, <%=film.genre.name%></a>
                             <button class="film-btn">
                                 <img src="/images/icons/play.svg" alt="">
                                 Смотреть
@@ -60,14 +62,19 @@
                         <div class="film-rate">
                             <p>7.3</p>
                         </div>
-                        <button class="film-btn">
-                            <img src="/images/icons/save.svg" alt="">
-                            Буду смотреть
+                        <button class="film-btn" onclick="deleteFilmFromToWatch('<%=film._id%>')">
+                            <img src="/images/icons/saved.png" alt="">
+                            Сохранено
                         </button>
                     </div>
                 </div>
+                <%
+                    })    
+                        }
+                %>
             </div>
         </div>
     </div>
+    <%- include('partials/scripts.ejs')%>
 </body>
 </html>

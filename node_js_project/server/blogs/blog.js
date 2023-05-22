@@ -4,10 +4,10 @@ const Schema = mongoose.Schema
 
 const blogSchema = new mongoose.Schema({
     title: String,
-    category: String,
+    category: {type: Schema.Types.ObjectId, ref: 'category'},
     image: String,
     description: String,
-    author: {type: Schema.Types.ObjectId, ref: 'user'}  
+    author: {type: Schema.Types.ObjectId, ref: 'userof'}  
 })
 
 module.exports = mongoose.model('blog', blogSchema)

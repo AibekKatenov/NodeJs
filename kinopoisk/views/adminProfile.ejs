@@ -33,15 +33,20 @@
                 </div>  
                 <h3>Фильмы</h3>
                 <a href="/new" class="add-btn">Добавить фильм</a>
+                <%
+                    films.forEach(item => {
+
+                %>
                 <div class="main-card">
                     <div class="card-left">
                         <div class="film-img">
-                            <img src="/images/films/film1.webp" alt="">
+                            <img src="<%=item.image%>" alt="">
                         </div>
                         <div class="film-info">
-                            <a href="">Все везде и сразу</a>
-                            <a href="">Everything Everywhere All at Once, 2021, 139 min</a>
-                            <a href="">США, фантастика</a>
+                            <a href="/detail/<%=item._id%>"><%=item.titleRus%></a>
+                            <a href="/detail/<%=item._id%>"><%=item.titleEng%>, <%=item.year%>, <%=item.time%> min</a>
+                            <a href="/detail/<%=item._id%>"><%=item.country.name%>, <%=item.genre.name%></a>
+                            <a href="/detail/<%=item._id%>">Автор: <%=item.author.full_name%></a>
                             <button class="film-btn">
                                 <img src="/images/icons/play.svg" alt="">
                                 Смотреть
@@ -53,17 +58,21 @@
                             <p>7.3</p>
                         </div>
                         <div class="film-btns">
-                            <a href="/edit">
+                            <a href="/edit/<%=item._id%>">
                                  Редактировать
                             </a>
-                            <a>
+                            <a onclick="deleteFilms('<%=item._id%>', '<%=item.author._id%>')">
                                  Удалить
                             </a>
                         </div>
                     </div>
-                </div>
+                </div>        
+                <%
+                    })
+                %>
             </div>
         </div>
     </div>
+    <%- include('partials/scripts.ejs')%>
 </body>
 </html>

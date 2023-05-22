@@ -37,6 +37,57 @@
                 <p class="under-image2">Ноябрь продолжает тенденцию, и мы спешим поделиться с Вами новым комплексным виджетом Report Manager. Давайте рассмотрим его</p>
                 <%- include('partials/options.ejs')%>
             </div> 
+            <%
+            blog.forEach(item => {
+            %>
+            <div class="imageholder">
+                <img src="<%=item.image%>" alt="">
+            </div>
+           
+            <div class="holder">
+                <h2 class="under-image"><%=item.title%></h2>
+                <p class="under-image2"><%=item.author.full_name%></p>
+                <p class="under-image2"><%=item.description%></p>
+                <p class="under-image2"><%=item.category.name%></p>
+                <a href="/detail/<%=item._id%>" class="detaila">details</a>
+                <%
+                    if(user.toRead && user.toRead.includes(item._id)){
+                %>
+                        <button onclick="deleteFromToRead('<%=item._id%>')">Добавлен</button>
+                    <%
+                        }else{
+                    %>
+                            <button onclick="saveToRead('<%=item._id%>')">Буду читать</button>    
+                    <%
+                        }
+                    %>
+                <%
+                    if(item.isAdmin){
+                %>
+                <a href="/edit/<%=item._id%>" class="editt">Редактировать</a>
+                <a onclick="deleteBlog('<%=item._id%>', '<%=item.author._id%>')" class="delete">Удалить</a>
+                <%
+                    }
+                %>
+                <%- include('partials/options.ejs')%>
+            </div> 
+            <%
+                })
+            %>
+            <div class="pages">
+                <%
+                    let localsString = ''
+                    if(locals.category){
+                        localsString = `categ=${locals.category}&`
+                        console.log(`${locals.category} text`)
+                    }
+                    for(let i = 0; i < pages; i++){
+                %>
+                        <a href="?<%=localsString%>page=<%=i%>"><%=i+1%></a>
+                <%
+                    }
+                %>
+            </div>
         </div>
         <div class="content-right">
             <div class="info">
@@ -45,12 +96,13 @@
                     category.forEach(item => {
 
                 %>
-                <p><%=item.name%></p>
+                <a href="?categ=<%=item.key%>"><%=item.name%></a>
                 <%
                     })
                 %>
             </div>
         </div>
     </div>
+    <%- include('partials/scripts.ejs')%>
 </body>
 </html>

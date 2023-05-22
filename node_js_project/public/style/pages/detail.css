@@ -1,0 +1,55 @@
+.main-detail{
+    padding: 20px 40px 50px;
+    background-color: #FFF;
+}
+
+.detail{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.blog-image{
+    width: 20%;
+}
+
+.blog-image img{
+    width: 100%;
+}
+
+.blog-info-detail{
+    width: 70%;
+}
+
+.blog-info-detail h2{
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.blog-info-detail p{
+    font-size: 14px;
+    color: rgba(0, 0, 0, .6);
+    margin: 20px;
+}
+
+.blog-info-detail button{
+    width: 200px;
+}
+
+.blog-info-detail h4{
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.blog-details{
+    display: flex;
+}
+
+.blog-details p:first-child{
+    width: 250px;
+}
+
+.blog-details p:last-child{
+    color: #000;
+}
+

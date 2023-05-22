@@ -9,18 +9,18 @@
 
     <div class="new">
         <h2 class="newBlog">Новый блог</h2>
-        <form action="/api/new" method="POST" enctype="multipart/form-data">
+        <form action="/api/blogs/new" method="POST" enctype="multipart/form-data">
             <fieldset>
                 <input type="text" placeholder="Введите заголовок блога" class="inputnew" name="title">
             </fieldset>
             <fieldset>
-                <select name="" id="" class="inputnew ad" name="category">
-                    <option value="" disabled selected class="sel">Выберите категорию</option>
+                <select id="" class="inputnew ad" name="category">
+                    <option value="unchosen" disabled selected class="sel">Выберите категорию</option>
                     <%
                         category.forEach(item => {
 
                     %>
-                        <option value=""><%=item.name%></option>  
+                        <option value="<%=item._id%>"><%=item.name%></option>  
                     <%
                         })
                     %>
@@ -37,5 +37,6 @@
             </fieldset>
         </form>
     </div>
+    <%- include('partials/scripts.ejs')%>
 </body>
 </html>
