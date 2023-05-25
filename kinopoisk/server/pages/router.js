@@ -18,6 +18,19 @@ router.get('/', async(req, res) => {
     if(req.query.page && req.query.page > 0){
         page = req.query.page
     }
+
+    if(req.query.search && req.query.search.length > 0){
+        options.$or = [
+            {
+                titleRus: new RegExp(req.query.search, 'i')
+            },
+            {
+                titleEng: new RegExp(req.query.search, 'i')
+            }
+        ]
+        res.locals.search = req.query.search
+    }
+
     const totalFilms = await Film.count(options)
     const allGenres = await genres.find()
     const films = await Film.find(options).limit(limit).skip(page * limit).populate('country').populate('genre')
@@ -42,7 +55,6 @@ router.get('/profile/:id', async(req,res) => {
     }else{
         res.redirect('/not-found')
     }
-    
 })
 
 router.get('/admin/:id', async(req,res) => {

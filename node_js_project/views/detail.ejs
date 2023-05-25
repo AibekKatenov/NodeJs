@@ -50,6 +50,37 @@
                     </div>
                 </div>
             </div>
+            <div class="comments">
+                    <h3>Комментарии</h3>
+                <%
+                    if(user && user._id){ 
+                %>
+                <form action="" class="add-comment-form">
+                    <p>Оцените фильм</p>
+                    <div class="comment-stars">
+                        <img src="/images/icons/star.svg" onclick="rateFilm(1)" alt="">
+                        <img src="/images/icons/star.svg" onclick="rateFilm(2)" alt="">
+                        <img src="/images/icons/star.svg" onclick="rateFilm(3)" alt="">
+                        <img src="/images/icons/star.svg" onclick="rateFilm(4)" alt="">
+                        <img src="/images/icons/star.svg" onclick="rateFilm(5)" alt="">
+                    </div>
+                    <p>Напишите комментарий</p>
+                    <textarea name="text"></textarea>
+                    <button>Сохранить</button>
+                </form>
+                <%
+                    }else{
+                %>
+                <p>
+                    <a href="/login">Войдите</a>
+                    или
+                    <a href="/register">зарегистрируйтесь</a>
+                    чтобы оставить комментарий
+                </p>
+                <%
+                    }
+                %>
+            </div>
       
     </div>
 

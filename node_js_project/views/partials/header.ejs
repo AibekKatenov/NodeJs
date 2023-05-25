@@ -1,13 +1,13 @@
 <header>
     <div class="header">
         <a href="/" class="header-left">My Blog</a>
-        <div class="header-center">
-            <input type="text" placeholder="Поиск по блогам">
+        <form class="header-center">
+            <input type="text" name="search" placeholder="Поиск по блогам">
             <div class="searchbar">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <span class="found">Найти</span>
             </div>
-        </div>
+        </form>
         <div class="header-right">
             <% if(user.isAdmin == true){
             %>

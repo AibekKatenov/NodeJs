@@ -45,7 +45,7 @@
             </div>
            
             <div class="holder">
-                <h2 class="under-image"><%=item.title%></h2>
+                <h2 class="under-image" name="title"><%=item.title%></h2>
                 <p class="under-image2"><%=item.author.full_name%></p>
                 <p class="under-image2"><%=item.description%></p>
                 <p class="under-image2"><%=item.category.name%></p>
@@ -79,7 +79,9 @@
                     let localsString = ''
                     if(locals.category){
                         localsString = `categ=${locals.category}&`
-                        console.log(`${locals.category} text`)
+                    }
+                    if(locals.search){
+                        localsString = `search=${locals.search}&`
                     }
                     for(let i = 0; i < pages; i++){
                 %>
