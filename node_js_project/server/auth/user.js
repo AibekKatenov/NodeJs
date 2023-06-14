@@ -6,6 +6,7 @@ const userSchema = new mongoose.Schema({
     full_name: String,
     password: String,
     isAdmin: Boolean,
+    googleId: String,
     toRead: [{type: Schema.Types.ObjectId, ref: 'blog'}],
     readAlready: [{type: Schema.Types.ObjectId, ref: 'blog'}]
 })

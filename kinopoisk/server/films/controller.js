@@ -7,23 +7,37 @@ const path = require('path')
 const createFilm = async(req, res) => {
     if(req.file && req.body.titlerus.length > 2 && req.body.titleeng.length > 2
         && req.body.year > 0
-        && req.body.time > 2
-        && req.body.video.length > 2){
-            await new film({
-                titleRus: req.body.titlerus,
-                titleEng: req.body.titleeng,
-                year: req.body.year,
-                time: req.body.time,
-                video: req.body.video,
-                country: req.body.country,
-                genre: req.body.genre,
-                image: `/images/films/${req.file.filename}`,
-                author: req.user._id,
-            }).save()
+        && req.body.time > 2){
+            if(req.body.video && req.body.video.length > 2){
+                await new film({
+                    titleRus: req.body.titlerus,
+                    titleEng: req.body.titleeng,
+                    year: req.body.year,
+                    time: req.body.time,
+                    video: req.body.video,
+                    country: req.body.country,
+                    genre: req.body.genre,
+                    image: `/images/films/${req.file.filename}`,
+                    author: req.user._id,
+                }).save()
+            }else if(req.body.series && req.body.series.length > 0){
+                await new film({
+                    titleRus: req.body.titlerus,
+                    titleEng: req.body.titleeng,
+                    year: req.body.year,
+                    time: req.body.time,
+                    series: req.body.series,
+                    country: req.body.country,
+                    genre: req.body.genre,
+                    image: `/images/films/${req.file.filename}`,
+                    author: req.user._id,
+                }).save()
+            }
             res.redirect(`/admin/${req.user._id}`)
     }else{
         res.redirect('/new?error=1')
     }
+    console.log(req.body)
 }
 
 const editFilm = async(req,res) => {

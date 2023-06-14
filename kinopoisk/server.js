@@ -36,6 +36,7 @@ app.use(require('./server/genres/router'))
 app.use(require('./server/country/router'))
 app.use(require('./server/auth/router'))
 app.use(require('./server/films/router'))
+app.use(require('./server/rates/router'))
 
 
 app.listen(PORT, () => {

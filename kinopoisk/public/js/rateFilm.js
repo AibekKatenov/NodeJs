@@ -10,5 +10,16 @@ function rateFilm(rate){
 
 function sendRate(e){
     e.preventDefault()
-    
+    const activeStars = document.querySelectorAll('.active-star')
+    const comment_text = document.querySelector('#comment-text').value
+    const author = document.getElementById('comment-author').value
+    const film = document.getElementById('comment-film').value
+
+    if(activeStars.length > 0){
+        axios.post('/api/rate', {rate: activeStars.length, text: comment_text, authorId: author, filmId: film}).then(data => {
+            if(data.data){
+                location.reload()
+            }
+        })
+    }
 }

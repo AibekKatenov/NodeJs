@@ -55,7 +55,7 @@
                 <%
                     if(user && user._id){ 
                 %>
-                <form action="" class="add-comment-form">
+                <form class="add-comment-form" onsubmit="sendRate(event)">
                     <p>Оцените фильм</p>
                     <div class="comment-stars">
                         <img src="/images/icons/star.svg" onclick="rateFilm(1)" alt="">
@@ -65,7 +65,9 @@
                         <img src="/images/icons/star.svg" onclick="rateFilm(5)" alt="">
                     </div>
                     <p>Напишите комментарий</p>
-                    <textarea name="text"></textarea>
+                    <textarea name="text" id="comment-text"></textarea>
+                    <input type="hidden" value="<%=user._id%>" id="comment-author">
+                    <input type="hidden" value="<%=blog._id%>" id="comment-film">
                     <button>Сохранить</button>
                 </form>
                 <%
@@ -80,6 +82,40 @@
                 <%
                     }
                 %>
+                <%
+                if(rates){
+                    rates.forEach(rate => {
+            %>
+                <div class="comment">
+                    <p>Автор:<a href=""><%=rate.authorId.full_name%></a></p>
+                    <div class="comment-stars">
+                        <%
+                            for(let i = 0; i < 5;i++){
+                                if(i < rate.rate){
+                        %> 
+                        <img class="active-star" src="/images/icons/star.svg" alt="">
+                        <%
+                                }else{
+                        %>
+                        <img src="/images/icons/star.svg" alt="">
+                        <%
+                                }
+                            }
+                        %>
+                    </div>
+                            <%
+                    if(rate.text.length>0){
+                %>
+                <p>Комментарий: <%=rate.text%></p>
+                <a href="/api/rate/delete/<%=rate._id%>" class="delete" onclick="deleteComment('<%=rate._id%>')">Удалить комментарий</a>
+                <%
+                    }
+                 %>
+                </div>
+            <% 
+                })        
+                    }
+            %>
             </div>
       
     </div>

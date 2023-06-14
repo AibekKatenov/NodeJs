@@ -62,7 +62,7 @@
                         }
                     %>
                 <%
-                    if(item.isAdmin){
+                    if(user.isAdmin){
                 %>
                 <a href="/edit/<%=item._id%>" class="editt">Редактировать</a>
                 <a onclick="deleteBlog('<%=item._id%>', '<%=item.author._id%>')" class="delete">Удалить</a>

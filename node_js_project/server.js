@@ -36,6 +36,7 @@ app.use(require('./server/pages/router'))
 app.use(require('./server/auth/router'))
 app.use(require('./server/category/router'))
 app.use(require('./server/blogs/router'))
+app.use(require('./server/rates/router'))
 
 app.listen(PORT, () =>  {   
     console.log(`Listening PORT: ${PORT}`)

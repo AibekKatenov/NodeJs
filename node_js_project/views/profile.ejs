@@ -29,9 +29,10 @@
                 <p class="under-image2"><%=item.description%></p>
                 <p class="under-image2"><%=item.category.name%></p>
                 <a href="/detail/<%=item._id%>" class="detaila">details</a>
-                <a onclick="deleteFromToRead('<%=item._id%>')" class="delete">Удалить блог</a>
+                <button onclick="deleteFromToRead('<%=item._id%>')">Добавлен</button>
+               
                 <%
-                    if(item.isAdmin){
+                    if(user){
                 %>
                 <a href="/edit/<%=item._id%>" class="editt">Редактировать</a>
                 <a onclick="deleteBlog('<%=item._id%>', '<%=item.author._id%>')" class="delete">Удалить</a>
