@@ -1,5 +1,5 @@
 const express = require('express')
-const passport = require('passport')
+    const passport = require('passport')
 const router = express.Router()
 const {signup,signIn,signout} = require('./controller')
 const createAdmin = require('../admin/seed')

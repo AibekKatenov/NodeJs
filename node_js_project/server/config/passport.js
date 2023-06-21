@@ -3,8 +3,7 @@ const User = require('../auth/user')
 const bcrypt = require('bcrypt')
 const LocalStrategy = require('passport-local')
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
-//801824372608-k56ql8varcnfn3jlpktv38kfqq65seno.apps.googleusercontent.com
-//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
+
 
 passport.use(new LocalStrategy(
     {
@@ -27,8 +26,8 @@ passport.use(new LocalStrategy(
 ))
 
 passport.use(new GoogleStrategy({
-    clientID: '801824372608-k56ql8varcnfn3jlpktv38kfqq65seno.apps.googleusercontent.com',
-    clientSecret: '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',
+    clientID: '',
+    clientSecret: '',
     callbackURL: "http://localhost:8000/api/auth/google",
     scope: ['openid', 'email', 'profile']
   },

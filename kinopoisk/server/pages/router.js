@@ -19,7 +19,6 @@ router.get('/', async(req, res) => {
     if(req.query.page && req.query.page > 0){
         page = req.query.page
     }
-
     if(req.query.search && req.query.search.length > 0){
         options.$or = [
             {
